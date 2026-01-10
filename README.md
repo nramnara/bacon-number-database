@@ -1,6 +1,8 @@
 # Bacon Number API (Neo4J & Java)
 A Java REST API backed by a Neo4j graph database that models actors and movies and computes the **Bacon number**, and **shortest paths** between actors.
 
+Builds a graph of actors and movies to model their relationships and computes Bacon numbers and shortest paths to measure how closely actors are connected through shared film appearances.
+
 ## Tech Stack
 - Java, Maven
 - Neo4j (Cypher)
