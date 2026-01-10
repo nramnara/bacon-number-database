@@ -1,12 +1,29 @@
-# 3311project
+# Bacon Number API (Neo4J & Java)
+A Java REST API backed by a Neo4j graph database that models actors and movies and computes the **Bacon number**, and **shortest paths** between actors.
 
+## Tech Stack
+- Java, Maven
+- Neo4j (Cypher)
+- Robot Framework (end-to-end API tests)
+
+## Features
+- Create and query actors, movies, and relationships
+- Compute Bacon number / shortest path between actors
+- Robust error handling (e.g., missing entities, unreachable paths)
+
+
+## Getting Started
+### Prerequisites
+- Java (JDK 17 or your project’s version)
+- Maven
+- Neo4j (Desktop or Server)
 
 ## Before Installation
 1. open up neo4j, navigate into an empty project folder. add a local dbms use version 4.4.23
 2. set name: neo4j
 3. set password: 12345678
 4. make sure it listens on port 7678
-  - ctrl + f  `# Bolt Connector` in the setting file, the port number should appear under that heading
+  - find  `Bolt Connector` in the setting file, the port number should appear under that heading
 
 ## Installation Guide using eclipse
 1. run ` git clone "https://github.com/nramnara/BaconNumberDatabase.git" ` in your terminal
@@ -15,6 +32,13 @@
 3. right click on the folder in the project explorer.
 4. run it as a java application
 5. select App.java file
+
+## Example Requests:
+Get actor:
+```curl -X GET "http://localhost:8080/api/v1/actor?name=Kevin%20Bacon"```
+
+Get path from two actors:
+```curl -X GET "http://localhost:8080/api/v1/bacon-path?from=Tom%20Hanks&to=Kevin%20Bacon"```
 
 ## Project Structure
 - each handler has its own file with the same naming scheme: <endpointName>Handler.java
@@ -31,7 +55,7 @@
 ## Testing
 - open terminal, navigate to directory of .robot file (relocate it to desktop make it easier)
 - make sure robotframework & robotframework-requests are installed in this directory
-- run robot `api_test.robot` to run all the test cases
+- run robot ```robot api_test.robot``` to run all the test cases
 - run robot -t "<testCaseName>" api_test.robot to run only one case
 
 ## How it works
